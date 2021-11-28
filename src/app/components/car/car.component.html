@@ -7,6 +7,7 @@
       <th>Renk adi</th>
       <th>Model Yılı</th>
       <th>Fiyati</th>
+      <th>Araba Detayi</th>
     </tr>
   </thead>
   <tr *ngFor="let car of cars">
@@ -16,6 +17,7 @@
       <td>{{car.colorName}}</td>
       <td>{{car.modelYear}}</td>
       <td>{{car.dailyPrice}}</td>
+      <button type="button" routerLink="/cars/cardetail/{{car.id}}" class="btn btn-primary" >Araba Detayi</button>
 
   </tr>
 </table>

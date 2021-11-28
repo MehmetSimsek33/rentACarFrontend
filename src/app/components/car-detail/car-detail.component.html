@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Acıklama</th>
+      <th>Marka</th>
+      <th>Renk adi</th>
+      <th>Model Yılı</th>
+      <th>Fiyati</th>
+      <th>Araba Detayi</th>
+    </tr>
+  </thead>
+  <tr >
+      <td>{{carDetails?.id}}</td>
+      <td>{{carDetails?.description}}</td>
+      <td>{{carDetails?.brandName}}</td>
+      <td>{{carDetails?.colorName}}</td>
+      <td>{{carDetails?.modelYear}}</td>
+      <td>{{carDetails?.dailyPrice}}</td>
+
+
+  </tr>
+</table>
+<div  *ngFor="let imageUrl of carDetails?.images ">
+  <img [src]="imageUrl" class="d-block w-100" alt="...">
+</div>
