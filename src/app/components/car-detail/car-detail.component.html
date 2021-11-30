@@ -7,20 +7,29 @@
       <th>Renk adi</th>
       <th>Model Yılı</th>
       <th>Fiyati</th>
-      <th>Araba Detayi</th>
+      <th></th>
     </tr>
   </thead>
-  <tr >
-      <td>{{carDetails?.id}}</td>
-      <td>{{carDetails?.description}}</td>
-      <td>{{carDetails?.brandName}}</td>
-      <td>{{carDetails?.colorName}}</td>
-      <td>{{carDetails?.modelYear}}</td>
-      <td>{{carDetails?.dailyPrice}}</td>
+  <tbody>
+    <tr >
+        <td>{{carDetails?.id}}</td>
+        <td>{{carDetails?.description}}</td>
+        <td>{{carDetails?.brandName}}</td>
+        <td>{{carDetails?.colorName}}</td>
+        <td>{{carDetails?.modelYear}}</td>
+        <td>{{carDetails?.dailyPrice}}</td>
+        <td><button class="btn btn-warning">Kirala</button></td>
 
+    </tr>
+  </tbody>
 
-  </tr>
 </table>
 <div  *ngFor="let imageUrl of carDetails?.images ">
-  <img [src]="imageUrl" class="d-block w-100" alt="...">
+
+   <img src= "{{imageUrl}}" class="d-block w-100" alt="..."/>
+  </div>
+
+<div>
+    <!-- <img src="../../../assets/images/1.jpg" class="d-block w-100" alt="..."/> -->
 </div>
+<!-- C:\Users\muo\source\repos\RecapProject\WebAPI\Images\6cece612-680d-448a-b152-7ccad9676c30_11_29_2021.jpg -->

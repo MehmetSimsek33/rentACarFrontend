@@ -1,3 +1,31 @@
+<div class="container" style="margin-top: 1cm;">
+  <div class="row">
+      <div class="col">
+          <label for="brandFilter" class="form-label">Markalar</label>
+<div>
+<select class="form-select"  aria-label="Default select example" [(ngModel)]="selectedBrandId" >
+  <option *ngFor="let brand of brands" value="{{brand.id}}" >{{brand.brandName}}</option>
+</select>
+</div>
+
+<div>
+  <select class="form-select"  aria-label="Default select example" [(ngModel)]="selectedColorId" >
+    <option *ngFor="let color of colors" value="{{color.id}}" >{{color.colorName}}</option>
+  </select>
+  </div>
+  <div class="col">
+    <button type="submit"  [routerLink]="changeRouteLink()">Filtrele</button>
+    <button type="submit" routerLink="/">Temizle</button>
+</div>
+</div></div>
+</div>
+<div class="mb-3">
+  <label for="placeholder" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi Giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{filterText}} aradınız
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -10,13 +38,13 @@
       <th>Araba Detayi</th>
     </tr>
   </thead>
-  <tr *ngFor="let car of cars">
+  <tr *ngFor="let car of cars |filterPipe:filterText ">
       <td>{{car.id}}</td>
       <td>{{car.description}}</td>
       <td>{{car.brandName}}</td>
       <td>{{car.colorName}}</td>
       <td>{{car.modelYear}}</td>
-      <td>{{car.dailyPrice}}</td>
+      <td>{{car.dailyPrice | currency}}</td>
       <button type="button" routerLink="/cars/cardetail/{{car.id}}" class="btn btn-primary" >Araba Detayi</button>
 
   </tr>
