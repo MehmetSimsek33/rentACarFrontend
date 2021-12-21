@@ -1,35 +1,98 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Acıklama</th>
-      <th>Marka</th>
-      <th>Renk adi</th>
-      <th>Model Yılı</th>
-      <th>Fiyati</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr >
-        <td>{{carDetails?.id}}</td>
-        <td>{{carDetails?.description}}</td>
-        <td>{{carDetails?.brandName}}</td>
-        <td>{{carDetails?.colorName}}</td>
-        <td>{{carDetails?.modelYear}}</td>
-        <td>{{carDetails?.dailyPrice}}</td>
-        <td><button class="btn btn-warning">Kirala</button></td>
+<div class="loader" ></div>
+<div class="row" >
 
-    </tr>
-  </tbody>
+<div class="col-md-12 ">
+  <div class="card "   >
+    <div class="card-header">Minimum Findex Puanı : </div>
+    <div class="card-body">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div
+            *ngFor="let imageUrl of carDetails?.images; let i = index"
+            [ngClass]="getSliderClass(i)"
+          >
+            <img
+             src= "{{imageUrl}}"
+              class="card-img"
+              alt="..."
+              style="width: 100%; height: 225px"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
 
-</table>
-<div  *ngFor="let imageUrl of carDetails?.images ">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
 
-   <img src= "{{imageUrl}}" class="d-block w-100" alt="..."/>
+
+          <li class="list-group-item">Marka : {{carDetails?.description}}</li>
+          <li class="list-group-item">Marka : {{carDetails?.brandName}}</li>
+          <li class="list-group-item">Renk : {{carDetails?.colorName}}</li>
+          <li class="list-group-item">Model : {{carDetails?.modelYear}}</li>
+          <li class="list-group-item">Günlük Kira : ₺{{ carDetails?.dailyPrice }}</li>
+          <li class="list-group-item">
+            KDV'li Kira Fiyatı : ₺{{carDetails?.dailyPrice}}
+          </li>
+          <li><button routerLink="/rentals/car/{{carDetails?.id}}" class="btn btn-dark">Kirala</button>
+          <button routerLink="/car/update/{{carDetails?.id}}" class="btn btn-warning">Güncelle</button></li>
+
+        </ul>
+      </div>
+    </div>
   </div>
-
-<div>
-    <!-- <img src="../../../assets/images/1.jpg" class="d-block w-100" alt="..."/> -->
 </div>
-<!-- C:\Users\muo\source\repos\RecapProject\WebAPI\Images\6cece612-680d-448a-b152-7ccad9676c30_11_29_2021.jpg -->

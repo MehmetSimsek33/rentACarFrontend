@@ -1,0 +1,16 @@
+
+
+
+.card {
+  display: grid;
+  border-radius: 15px;
+  background: #b49898;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  height: 100%;
+  cursor: pointer;
+  margin-top: 200px;
+  margin-right: 200px;
+  margin: 2px;
+  width: 100%;
+}

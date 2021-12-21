@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/carDetail';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car.service';
@@ -14,6 +15,7 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  carsDetails:CarDetail[]=[]
   colors: Color[] = [];
   brands: Brand[] = [];
   selectedBrandId:number
@@ -75,6 +77,7 @@ export class CarComponent implements OnInit {
   }
   getCarsByColorss(colorId: number) {
     this.carService.getCarsByColorss(colorId).subscribe((response) => {
+      console.log(response.data)
       this.cars = response.data;
     });
   }
@@ -82,6 +85,7 @@ export class CarComponent implements OnInit {
     this.carService
       .GetCarsWithDetailsByBrandIdAndColorId(brandId, colorId)
       .subscribe((response) => {
+        console.log(response.data)
         this.cars = response.data;
       });
   }

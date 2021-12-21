@@ -1,37 +1,89 @@
-<nav class="navbar navbar-expand-lg bg-dark" >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <div
+      class="
+        d-flex
+        flex-wrap
+        align-items-center
+        justify-content-center justify-content-lg-start
+      "
+    >
+      <ul
+        class="
+          nav
+          col-12 col-lg-auto
+          me-lg-auto
+          mb-2
+          justify-content-center
+          mb-md-0
+        "
+      >
+        <li><a routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
+        <li>
+          <a routerLink="/aboutUs" class="nav-link px-2 text-white"
+            >Hakkımızda</a
+          >
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <div class="text-middle">
+        <button
+          type="button"
+          routerLink="/adminPanel"
+          class="btn btn-outline-light me-2"
+        >
+          Admin Paneli
+        </button>
+      </div>
+
+      <div class="text-end position-absolute top-10 end-0" *ngIf="!isAuth">
+        <button
+        *ngIf="!isAuth"
+          type="button"
+          routerLink="/login"
+          class="btn btn-outline-light me-2"
+        >
+          Giriş yap
+        </button>
+        <li type="button" routerLink="/register" class="btn btn-warning">
+          Kayıt ol
+        </li>
+      </div>
+
+      <div
+        class="collapse navbar-collapse position-absolute top-10 end-0" id="navbarNavDarkDropdown" *ngIf="isAuth"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="
+                d-block
+                link-dark
+                text-decoration-none
+                dropdown-toggle
+                me-2
+              "
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+            {{user?.firstName}} {{user?.lastName}}
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" routerLink="/userDetail">Profil</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" (click)="logout()">Çıkış yap</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

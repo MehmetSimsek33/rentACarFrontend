@@ -1,0 +1,49 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-3">
+            <input [(ngModel)]="userRolFilter" type="text" class="form-control" placeholder="Kullanıcı Ara">
+        </div>
+        <div class="col-md-4">
+            <button routerLink="/userOperationClaim/add" class="btn btn-outline-success">
+                <span>Rol Ata</span></button>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Rol Adı</th>
+                        <th>Kullanıcı Adı</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr *ngFor="let userOperationClaim of userOperationClaimDetails | userRolFilter:userRolFilter"></tr> -->
+                    <tr *ngFor="let userOperationClaim of userOperationClaimDetails ">
+                        <td>{{userOperationClaim.id}}</td>
+                        <td>{{userOperationClaim.operationName}}</td>
+                        <td>{{userOperationClaim.userFullName}}</td>
+                        <td class="m-side-btn">
+                            <button
+                            routerLink="/userOperationClaim/update/{{userOperationClaim.id}}"
+                            class="btn btn-outline-primary"
+                            >
+                                <i class="fas fa-pencil-alt"></i> Güncelle
+                            </button>
+                            <button
+                            (click)="delete(userOperationClaim.id)"
+                            class="btn btn-outline-danger"
+                            >
+                                <i class="fas fa-trash-alt"></i> Sil
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

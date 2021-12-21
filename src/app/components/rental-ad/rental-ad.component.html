@@ -1,0 +1,128 @@
+<div class="container-fluid container-md py-5 mb-5">
+
+
+  <div id="book-car-menu">
+    <h5 class="display-5 fw-bold">Bu Arabayı Kirala</h5>
+    <div class="bg-light rounded-1 shadow my-5 my-xl-0 p-3 ps-4">
+      <form class="row">
+        <div class="col-md form-group">
+          <label for="pick-up-date-input" class="form-label text-dark"
+            >Teslim Alma Yeri:</label
+          >
+          <select class="form-select" appHover>
+            <option selected disabled hidden>Yer seçiniz</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-md form-group">
+          <label for="rent-start-date-input" class="form-label text-dark"
+            >Teslim Alma Tarihi:</label
+          >
+          <input
+            [ngModel]="rentDate | date: 'yyyy-MM-ddThh:mm'"
+            (ngModelChange)="rentDate = $event"
+            name="renttDate"
+            class="form-control"
+            appHover
+            type="datetime-local"
+            id="rent-start-date-input"
+            required
+          />
+        </div>
+        <div class="col-md form-group">
+          <label for="rent-end-date-input" class="form-label text-dark"
+            >Teslim Etme Tarihi:</label
+          >
+          <input
+            [ngModel]="returnDate | date: 'yyyy-MM-ddThh:mm'"
+            (ngModelChange)="returnDate = $event"
+            name="returnDate"
+            class="form-control"
+            appHover
+            type="datetime-local"
+            id="rent-end-date-input"
+            required
+          />
+        </div>
+        <div class="col-md-3">
+        <button (click)="goToPayment()" type="button" class="btn btn-success">
+          İlerle
+        </button>
+      </div>
+        <button
+          type="submit"
+          (click)="rentCar()"
+          class="col-lg btn btn-primary rounded-1 mt-3 p-3 m-lg-0 p-lg-0"
+          appHover
+        >
+          Kirala!
+        </button>
+      </form>
+
+    </div>
+  </div>
+</div>
+<div class="container mt-5 px-5" *ngIf="paymentPage">
+  <div class="mb-4">
+      <h2>Confirm order and pay</h2> <span>please make the payment, after that you can enjoy all the features and benefits.</span>
+  </div>
+  <div class="row" [formGroup]="creditCardForm">
+      <div class="col-md-8">
+          <div class="card p-3" *ngIf="!checkBox">
+              <h6 class="text-uppercase">Payment details</h6>
+              <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" formControlName="nameOnTheCard" required="required"> <span>Name on card</span> </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" formControlName="cardNumber" required="required"> <i class="fa fa-credit-card"></i> <span>Card Number</span> </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="d-flex flex-row">
+                          <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" formControlName="expirationDate" required="required"> <span>Expiry</span> </div>
+                          <div class="inputbox mt-3 mr-2"> <input type="number" name="name" class="form-control" formControlName="cvv" required="required"> <span>CVV</span> </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row" *ngIf="isCardExist">
+            <div *ngFor="let card of creditCards" class="col-md-4">
+                <div class="payment-card">
+                  <div class="form-check">
+                    <input class="form-check-input ml-auto mr-3" (change)="checkBoxTicked($event)" type="checkbox" name="check" value="">
+                  </div>
+
+                    <i class="fa fa-cc-visa payment-icon-big text-success"></i>
+                    <h2>
+                        {{card.cardNumber}}
+                    </h2>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <small>
+                                <strong>Expiry date:</strong> {{card.expirationDate}}
+                            </small>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <small>
+                                <strong>Name:</strong> {{card.nameOnTheCard}}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div><div class="modal-body">
+            <p>Kredi Kartı numarası kaydedilsin mi?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="saveCreditCard()">Kaydet ve Öde</button>
+            <button type="button" class="btn btn-outline-dark" (click)="rentCar()">Kaydetmeden Öde</button>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-blue p-3 text-white mb-3"> <span>You have to pay</span>
+                <div class="d-flex flex-row align-items-end mb-3">
+                    <h1 class="mb-0 yellow"> {{money | currency}}</h1>
+                </div> <span>Enjoy all the features and perk after you complete the payment</span> <a class="yellow decoration">Know all the features</a>
+                <div class="hightlight"> <span>100% Guaranteed support and update for the next 5 years.</span> </div>
+            </div>
+        </div>

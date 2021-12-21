@@ -1,0 +1,224 @@
+<!-- <div class="card-header"><h5 class="title">Ürün ekle</h5></div>
+
+<form [formGroup]="carAddForm">
+  <div class="p-3 bg-light">
+    <div class="row">
+      <label for="brandId" class="col-sm-2 col-form-label">
+        <strong class="align-middle">Marka</strong>
+      </label>
+      <div class="col-sm-10">
+        <select
+          class="form-select"
+          id="brandId"
+          formControlName="brandId"
+          aria-label="Marka Seçiniz"
+        >
+          <option value="" selected>Marka Seçiniz</option>
+          <option value="{{ brand.id }}" *ngFor="let brand of brands">
+            {{ brand.brandName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 bg-white">
+    <div class="row">
+      <label for="colorId" class="col-sm-2 col-form-label">
+        <strong class="align-middle">Renk</strong>
+      </label>
+      <div class="col-sm-10">
+        <select
+          class="form-select"
+          id="colorId"
+          formControlName="colorId"
+          aria-label="Renk Seçiniz"
+        >
+          <option value="" selected>Renk Seçiniz</option>
+          <option value="{{ color.id }}" *ngFor="let color of colors">
+            {{ color.colorName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="description">Açıklama</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="description"
+                formControlName="description"
+                class="form-control"
+                placeholder="Açıklama"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="modelYear">modelYear</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="modelYear"
+                formControlName="modelYear"
+                class="form-control"
+                placeholder="modelYear"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="dailyPrice">Fiyati</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="dailyPrice"
+                formControlName="dailyPrice"
+                class="form-control"
+                placeholder="Günlük Fiyati"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form> -->
+<br />
+<div class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title text-danger" style="text-align: center">
+            Araç Ekle
+          </h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="brandId"
+                formControlName="brandId"
+                aria-label="Marka Seçiniz"
+              >
+                <option value="" selected>Marka Seçiniz</option>
+                <option value="{{ brand.id }}" *ngFor="let brand of brands">
+                  {{ brand.brandName }}
+                </option>
+              </select>
+              >
+            </div>
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="colorId"
+                formControlName="colorId"
+                aria-label="Renk Seçiniz"
+              >
+                <option value="" selected>Renk Seçiniz</option>
+                <option value="{{ color.id }}" *ngFor="let color of colors">
+                  {{ color.colorName }}
+                </option>
+              </select>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="modelYear"
+                formControlName="modelYear"
+                placeholder=" "
+              />
+              <label for="modelYear">Model Yılı</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="dailyPrice"
+                formControlName="dailyPrice"
+                placeholder=" "
+              />
+              <label for="dailyPrice">Günlük Fiyat (KDV* Hariç)</label>
+            </div>
+          <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="CarFindexPoint"
+                formControlName="CarFindexPoint"
+                placeholder="Minimum Findex"
+              />
+              <label for="colorId">Car Findex</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="description"
+                formControlName="description"
+                placeholder=" "
+              />
+              <label for="descript">Açıklama</label>
+            </div>
+
+          </form>
+        </div>
+        <div class="card-footer">
+          <button
+            class="btn btn-fill btn-success pull-rigth"
+            (click)="add()"
+            style="float: right; width: 30%"
+          >
+            <i class="bi bi-plus-circle"></i>
+            Ekle
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card" style="width: 18rem">
+            <div class="card-header">Markalar</div>
+            <ul class="list-group list-group-flush">
+              <li *ngFor="let brand of brands" class="list-group-item">
+                {{ brand.id }} : {{ brand.brandName }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card" style="width: 18rem">
+            <div class="card-header">Renkler</div>
+            <ul class="list-group list-group-flush">
+              <li *ngFor="let color of colors" class="list-group-item">
+                {{ color.id }} : {{ color.colorName }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br />
+      <p style="font-size: 1px">*KDV : %18</p>
+    </div>
+  </div>
+</div>

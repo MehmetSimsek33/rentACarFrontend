@@ -1,0 +1,234 @@
+body {
+  background-color: #eee
+}
+
+.card {
+  border: none
+}
+
+.form-control {
+  border-bottom: 2px solid #eee !important;
+  border: none;
+  font-weight: 600
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #8bbafe;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0px;
+  border-bottom: 2px solid blue !important
+}
+
+.inputbox {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%
+}
+
+.inputbox span {
+  position: absolute;
+  top: 7px;
+  left: 11px;
+  transition: 0.5s
+}
+
+.inputbox i {
+  position: absolute;
+  top: 13px;
+  right: 8px;
+  transition: 0.5s;
+  color: #3F51B5
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0
+}
+
+.inputbox input:focus~span {
+  transform: translateX(-0px) translateY(-15px);
+  font-size: 12px
+}
+
+.inputbox input:valid~span {
+  transform: translateX(-0px) translateY(-15px);
+  font-size: 12px
+}
+
+.card-blue {
+  background-color: #492bc4
+}
+
+.hightlight {
+  background-color: #5737d9;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 14px
+}
+
+.yellow {
+  color: #fdcc49
+}
+
+.decoration {
+  text-decoration: none;
+  font-size: 14px
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #492bc4;
+  border-color: #492bc4
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #492bc4;
+  border-color: #492bc4
+}
+
+.decoration:hover {
+  text-decoration: none;
+  color: #fdcc49
+}
+
+body{margin-top:20px;
+  background:#eee;
+  }
+
+  /* WRAPPERS */
+  #wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .wrapper {
+    padding: 0 20px;
+  }
+  .wrapper-content {
+    padding: 20px 10px 40px;
+  }
+  #page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    position: relative !important;
+  }
+  @media (min-width: 768px) {
+    #page-wrapper {
+      position: inherit;
+      margin: 0 0 0 240px;
+      min-height: 2002px;
+    }
+  }
+
+  /* Payments */
+  .payment-card {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #e7eaec;
+  }
+  .payment-icon-big {
+    font-size: 60px;
+    color: #d1dade;
+  }
+  .payments-method.panel-group .panel + .panel {
+    margin-top: -1px;
+  }
+  .payments-method .panel-heading {
+    padding: 15px;
+  }
+  .payments-method .panel {
+    border-radius: 0;
+  }
+  .payments-method .panel-heading h5 {
+    margin-bottom: 5px;
+  }
+  .payments-method .panel-heading i {
+    font-size: 26px;
+  }
+
+  .payment-icon-big {
+      font-size: 60px !important;
+      color: #d1dade;
+  }
+
+  .form-control,
+  .single-line {
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    font-size: 14px;
+  }
+  .text-navy {
+      color: #1ab394;
+  }
+  .text-success {
+      color: #1c84c6;
+  }
+  .text-warning {
+      color: #f8ac59;
+  }
+  .ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+  }
+  .ibox.collapsed .ibox-content {
+    display: none;
+  }
+  .ibox.collapsed .fa.fa-chevron-up:before {
+    content: "\f078";
+  }
+  .ibox.collapsed .fa.fa-chevron-down:before {
+    content: "\f077";
+  }
+  .ibox:after,
+  .ibox:before {
+    display: table;
+  }
+  .ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 3px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 48px;
+  }
+  .ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+  }
+  .ibox-footer {
+    color: inherit;
+    border-top: 1px solid #e7eaec;
+    font-size: 90%;
+    background: #ffffff;
+    padding: 10px 15px;
+  }
+  .text-danger {
+      color: #ed5565;
+  }
