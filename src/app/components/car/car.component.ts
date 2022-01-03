@@ -15,13 +15,16 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
-  carsDetails:CarDetail[]=[]
+  car:Car
+  carsDetails:CarDetail
   colors: Color[] = [];
   brands: Brand[] = [];
   selectedBrandId:number
   selectedColorId:number
   filterText: '';
   routeLink = ""
+  carId:number
+
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
@@ -67,18 +70,23 @@ export class CarComponent implements OnInit {
 
   getCars() {
     this.carService.getCars().subscribe((response) => {
+
       this.cars = response.data;
+
+
+
     });
   }
   getCarsByBrands(brandId: number) {
     this.carService.getCarsByBrands(brandId).subscribe((response) => {
       this.cars = response.data;
+
     });
   }
   getCarsByColorss(colorId: number) {
     this.carService.getCarsByColorss(colorId).subscribe((response) => {
       console.log(response.data)
-      this.cars = response.data;
+      this.cars = response.data;  console.log(this.cars[0])
     });
   }
   GetCarsWithDetailsByBrandIdAndColorId(brandId: number, colorId: number) {
@@ -87,6 +95,7 @@ export class CarComponent implements OnInit {
       .subscribe((response) => {
         console.log(response.data)
         this.cars = response.data;
+
       });
   }
 
@@ -105,4 +114,12 @@ export class CarComponent implements OnInit {
       return this.routeLink
     }
   }
+  getSliderClass(index: number) {
+    if (index == 0) {
+      return 'carousel-item active';
+    } else {
+      return 'carousel-item';
+    }
+  }
+
 }

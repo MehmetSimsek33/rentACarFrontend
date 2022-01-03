@@ -8,4 +8,5 @@ export interface Car{
   modelYear:string;
   dailyPrice:string;
   CarFindexPoint:string;
+  images:string[]
 }

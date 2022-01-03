@@ -4,5 +4,6 @@ export interface RentalDetails{
   customerFirstNameLastName:string;
   rentDate:string;
   returnDate:string;
+  carDesciription:string
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { OperationClaim } from 'src/app/models/operationClaim';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,8 +12,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserDetailComponent implements OnInit {
 
-  updateUserForm:FormGroup;
-  user:User;
+
+  reloaded = false;
+  claims: OperationClaim[];
+  updateUserForm: FormGroup;
+  user: User;
+  dataLoaded = false;
+
   constructor(private formBuilder:FormBuilder,
     private userService:UserService,
     private toastrService:ToastrService) { }
@@ -20,6 +26,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getUserByEmail();
     this.createdUpdateUserForm();
+    this.reload();
   }
 
   getUserByEmail(){
@@ -64,6 +71,21 @@ export class UserDetailComponent implements OnInit {
           console.log(responseError);
         })
 
+    }
+  }
+
+  reload() {
+    if (this.reloaded == true) {
+      setTimeout(function () {
+        location.reload();
+      });
+      setTimeout(function () {
+        location.reload();
+      });
+      setTimeout(function () {
+        location.reload();
+      });
+      this.reloaded = true;
     }
   }
 }

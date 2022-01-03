@@ -3,18 +3,22 @@
     <tr>
       <th>Id</th>
       <th>Marka</th>
+      <th>Açıklama</th>
       <th>Kiralayan Adi Soyadi</th>
       <th>Kiralama Tarihi</th>
       <th>Teslim Tarihi</th>
+
 
     </tr>
   </thead>
   <tr *ngFor="let rental of rentalDetails">
       <td>{{rental.id}}</td>
       <td>{{rental.carBrandName}}</td>
+      <td>{{rental.carDesciription}}</td>
       <td>{{rental.customerFirstNameLastName}}</td>
       <td>{{rental.rentDate}}</td>
       <td>{{rental.returnDate}}</td>
+
 
 
   </tr>

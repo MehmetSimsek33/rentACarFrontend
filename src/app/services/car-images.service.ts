@@ -17,11 +17,11 @@ export class CarImagesService {
     return this.apiUrl + imagePath
   }
 
-  uploadImage(image: File, carId: number): Observable<ResponseModel> {
+  uploadCarImage(carId: number,image: File, ): Observable<ResponseModel> {
     let newPath = this.apiUrl + "api/CarsImages/add"
     const sendForm = new FormData();
-    sendForm.append('carId', JSON.stringify(carId))
-    sendForm.append('carImage', image, image.name)
+    sendForm.append('carId', carId.toString())
+    sendForm.append('image', image, image.name)
     return this.httpClient.post<ResponseModel>(newPath, sendForm);
   }
 

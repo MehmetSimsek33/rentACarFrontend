@@ -22,10 +22,12 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService:UserService,
     private router:Router,
+
   ) {}
 
   ngOnInit(): void {
     this.creteLoginForm();
+    this.isAuth();
   }
 
   creteLoginForm() {
@@ -53,7 +55,9 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("passwordHash", response.data.passwordHash);
               localStorage.setItem("passwordSalt", response.data.passwordSalt);
               localStorage.setItem("email", response.data.email);
+              this.authService.authControl();
 
+              this.toastrService.success(response.message, "Başarılı")
             } )
             this.router.navigate(["/"]);
 
@@ -61,5 +65,15 @@ export class LoginComponent implements OnInit {
         this.toastrService.error(responseError.error)
       })
     }
+
   }
+
+
+  isAuth() {
+    if(this.authService.isAuthenticated())
+    {
+      this.router.navigate(["/"])
+    }
+  }
+
 }

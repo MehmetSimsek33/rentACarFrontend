@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/carDetail';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { CarService } from 'src/app/services/car.service';
 import { RentalService } from 'src/app/services/rental.service';
@@ -17,6 +18,7 @@ export class CarDetailComponent implements OnInit {
 
   constructor(private carService:CarService,
     private activatedRoute:ActivatedRoute,
+    private authService:AuthService
                 ) { }
 
   ngOnInit(): void {
@@ -25,10 +27,12 @@ export class CarDetailComponent implements OnInit {
     })
   }
 
+
   GetCarDetailDto(carId:number)
   {
     this.carService.GetCarDetailDto(carId).subscribe((response)=>{
       this.carDetails=response.data
+
     })
   }
   getSliderClass(index: number) {
@@ -37,6 +41,18 @@ export class CarDetailComponent implements OnInit {
     } else {
       return 'carousel-item';
     }
+  }
+  isadmin()
+  {
+    if(this.authService.isAdmin())
+      {
+        return true
+      }
+      else
+      {
+        return false
+      }
+
   }
 
 }

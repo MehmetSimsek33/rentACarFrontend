@@ -20,9 +20,8 @@ export class UserService {
     return this.httpClient.get<ListResponseModel<User>>(newApiUrl);
   }
 
-  getUserByEmail(email:string){
+  getUserByEmail(email:string|null){
     let newApiUrl = this.apiUrl + "getuserbyemail?email=" +email;
-
     return this.httpClient.get<DetailResponseModel<User>>(newApiUrl);
   }
 

@@ -17,6 +17,7 @@ export class NaviComponent implements OnInit {
   constructor(private authService:AuthService,
     private userService:UserService,
 
+
    private router:Router,
     private toastrService:ToastrService) { }
 
@@ -60,6 +61,18 @@ export class NaviComponent implements OnInit {
   //     item.cl
   //   })
   // }
+  isadmin()
+  {
+    if(this.authService.isAdmin())
+      {
+        return true
+      }
+      else
+      {
+        return false
+      }
+
+  }
 
   scrollNavbar(){
     window.addEventListener("scroll", () => {

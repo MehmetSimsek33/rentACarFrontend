@@ -131,6 +131,28 @@
                 </option>
               </select>
             </div>
+
+
+
+
+                <div class="input-group">
+                  <input
+                    (change)="selectFiles($event)"
+                    type="file"
+                    multiple
+                    class="form-control"
+                  />
+                  <button
+
+                    [disabled]="!selectedFiles"
+                    class="btn btn-success"
+                  >
+                    Yükle
+                  </button>
+         </div>
+
+
+
             <div class="form-floating mb-3">
               <input
                 type="text"
@@ -222,3 +244,6 @@
     </div>
   </div>
 </div>
+
+
+

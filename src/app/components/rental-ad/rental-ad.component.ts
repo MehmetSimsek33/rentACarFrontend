@@ -45,6 +45,7 @@ export class RentalAdComponent implements OnInit {
     private paymentService: PaymentService,
     private customerService:CustomerService,
 
+
     private formBuilder:FormBuilder,
     private creditCardService:CreditCardService) { }
 
@@ -77,6 +78,7 @@ export class RentalAdComponent implements OnInit {
     this.rentalService.addRentals(newRental).subscribe(
       (s) => {
         this.toastrService.success(s.message, 'Başarılı');
+        this.router.navigate(["/"])
 
         //this.payMessage();
       },
@@ -137,6 +139,8 @@ export class RentalAdComponent implements OnInit {
     this.paymentPage = true;
     this.GetCreditCard(this.customerId);
     console.log(this.isCardExist)
+
+
   }
   goToBack() {
     this.paymentPage = false;

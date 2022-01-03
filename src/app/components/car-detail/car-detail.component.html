@@ -89,8 +89,16 @@
             KDV'li Kira Fiyatı : ₺{{carDetails?.dailyPrice}}
           </li>
           <li><button routerLink="/rentals/car/{{carDetails?.id}}" class="btn btn-dark">Kirala</button>
-          <button routerLink="/car/update/{{carDetails?.id}}" class="btn btn-warning">Güncelle</button></li>
+          <button   *ngIf="isadmin()" routerLink="/car/update/{{carDetails?.id}}" class="btn btn-warning">Güncelle</button></li>
+          <br /><br />
+          <!-- <button
 
+            class="btn btn-warning"
+            style="width: 100%"
+            routerLink="/image/add/{{ carDetails?.id}}"
+          >
+            <i class="bi bi-upload"></i> Resim Yükle -->
+          <!-- </button> -->
         </ul>
       </div>
     </div>

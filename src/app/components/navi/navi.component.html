@@ -20,25 +20,44 @@
       >
         <li><a routerLink="" class="nav-link px-2 text-white">Ana Sayfa</a></li>
         <li>
-          <a routerLink="/aboutUs" class="nav-link px-2 text-white"
-            >Hakkımızda</a
-          >
+          <a routerLink="/color" class="nav-link px-2 text-white">Renkler</a>
+        </li>
+        <li>
+          <a routerLink="/brand" class="nav-link px-2 text-white">Markalar</a>
         </li>
       </ul>
-
-      <div class="text-middle">
-        <button
-          type="button"
-          routerLink="/adminPanel"
-          class="btn btn-outline-light me-2"
-        >
-          Admin Paneli
-        </button>
+      <div class="text-middle" *ngIf="isadmin()">
+      <ul
+      class="
+        nav
+        col-12 col-lg-auto
+        me-lg-auto
+        mb-2
+        justify-content-center
+        mb-md-0
+      "
+    >
+      <li><a routerLink="/car/add" class="nav-link px-2 text-white">Araç Ekle</a></li>
+      <li>
+        <a routerLink="/color/add" class="nav-link px-2 text-white">Renk Ekle</a>
+      </li>
+      <li>
+        <a routerLink="/brand/add" class="nav-link px-2 text-white">Marka Ekle</a>
+      </li>
+      <li>
+        <a routerLink="/rental" class="nav-link px-2 text-white">Kiralık Listesi</a>
+      </li>
+      <li>
+        <a routerLink="/userOperationClaim" class="nav-link px-2 text-white">Yetkiler</a>
+      </li>
+    </ul>
       </div>
+
+
 
       <div class="text-end position-absolute top-10 end-0" *ngIf="!isAuth">
         <button
-        *ngIf="!isAuth"
+          *ngIf="!isAuth"
           type="button"
           routerLink="/login"
           class="btn btn-outline-light me-2"
@@ -51,7 +70,9 @@
       </div>
 
       <div
-        class="collapse navbar-collapse position-absolute top-10 end-0" id="navbarNavDarkDropdown" *ngIf="isAuth"
+        class="collapse navbar-collapse position-absolute top-10 end-0"
+        id="navbarNavDarkDropdown"
+        *ngIf="isAuth"
       >
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
@@ -69,7 +90,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-            {{user?.firstName}} {{user?.lastName}}
+              {{ user?.firstName }} {{ user?.lastName }}
             </a>
             <ul
               class="dropdown-menu dropdown-menu-dark"

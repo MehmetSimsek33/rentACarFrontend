@@ -36,6 +36,14 @@ import { UserOperationClaimAddComponent } from './components/user-operation-clai
 import { OperationClaimComponent } from './components/operation-claim/operation-claim.component';
 import { OperationClaimUpdateComponent } from './components/operation-claim-update/operation-claim-update.component';
 import { OperationClaimAddComponent } from './components/operation-claim-add/operation-claim-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { CustomerAddComponent } from './components/customer-add/customer-add.component';
+import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
+import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
+import { CustomerNullComponent } from './components/customer-null/customer-null.component';
+
+
+
 
 
 
@@ -69,6 +77,14 @@ import { OperationClaimAddComponent } from './components/operation-claim-add/ope
     OperationClaimComponent,
     OperationClaimUpdateComponent,
     OperationClaimAddComponent,
+    BrandAddComponent,
+    CustomerAddComponent,
+    BrandUpdateComponent,
+    CustomerDetailComponent,
+    CustomerNullComponent,
+
+
+
 
 
   ],

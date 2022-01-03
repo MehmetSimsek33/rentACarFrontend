@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(registerModel).subscribe(response=>{
         this.toastrService.success("Kayıt tamamlandi");
       },responseError=>{
-        this.toastrService.error(responseError)
+        this.toastrService.error("Kullanici Mevcut")
       }
 
       )

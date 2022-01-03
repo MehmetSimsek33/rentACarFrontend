@@ -1,0 +1,66 @@
+
+<div class="content">
+  <div class="col-md-12">
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      routerLink="/profile"
+    ></button>
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title text-danger" style="text-align: center">
+          Müşteri Formu
+        </h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="customerAddForm">
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="userId"
+              formControlName="userId"
+              placeholder=" "
+              readonly
+            />
+            <label for="userId">Kullanıcı (ID)</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="companyName"
+              formControlName="companyName"
+              placeholder=" "
+            />
+            <label for="companyName"
+              ><i class="fa fa-building-o" aria-hidden="true"></i> Şirket
+              Adı</label
+            >
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="customerFindexPoint"
+              formControlName="customerFindexPoint"
+              placeholder=" "
+            />
+            <label for="customerFindexPoint"
+              ><i class="fa fa-building-o" aria-hidden="true"></i> Findex Puani
+              </label
+            >
+          </div>
+
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-warning pull-rigth" (click)="add()">
+          Ekle
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

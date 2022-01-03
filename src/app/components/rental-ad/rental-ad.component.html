@@ -46,14 +46,14 @@
             required
           />
         </div>
-        <div class="col-md-3">
-        <button (click)="goToPayment()" type="button" class="btn btn-success">
+        <!-- <div class="col-md-3">
+        <button  (click)="goToPayment()" type="button" class="btn btn-success"    appHover>
           İlerle
         </button>
-      </div>
+      </div> -->
         <button
           type="submit"
-          (click)="rentCar()"
+          (click)="goToPayment()"
           class="col-lg btn btn-primary rounded-1 mt-3 p-3 m-lg-0 p-lg-0"
           appHover
         >
@@ -85,7 +85,9 @@
                   </div>
               </div>
           </div>
+
           <div class="row" *ngIf="isCardExist">
+            <H1>Kayıtlı Kredi Kartlarınız</H1>
             <div *ngFor="let card of creditCards" class="col-md-4">
                 <div class="payment-card">
                   <div class="form-check">
